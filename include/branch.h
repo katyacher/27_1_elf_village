@@ -36,6 +36,7 @@ public:
     void setElfName_auto(){
         std::string names[] = {"Legolas", "Elrond", "Arwen", "Galadriel", ""};
         elf_name = names[rand()%5];
+        if(elf_name != "") elf_name += std::to_string(std::rand()%100);
     }
 
     void elf_name_init(){
@@ -89,9 +90,9 @@ public:
     Branch* getTopBranch(){
     //Если это дерево
         if (parent == nullptr) return nullptr; 
+    //Если это большая ветка
+        if (parent->parent == nullptr) return this;
     //Если это средняя ветка
-        if (parent->parent == nullptr) return parent;
-    //Если это маленькая ветка
         return parent->getTopBranch();
     }
 
