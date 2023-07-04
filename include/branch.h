@@ -12,8 +12,8 @@ private:
 public:
     Branch(){
         if(this->parent == nullptr){
-            int count = std::rand()%5 + 3;
-            for(int i = 0; i <= count; i++){
+            int count = std::rand()%3 + 3;
+            for(int i = 0; i < count; i++){
                 children.emplace_back(this);
             }
         }
@@ -22,7 +22,7 @@ public:
     Branch(Branch* parent_opt): parent(parent_opt){
         if(this->parent->parent == nullptr){
             int count = std::rand()%3 + 2;
-            for(int i = 0; i <=count; i++){
+            for(int i = 0; i < count; i++){
                 children.emplace_back(this);
             }
         }
@@ -30,6 +30,7 @@ public:
 
     void setElfName(std::string name){
         elf_name = name;
+        if(name == "None") elf_name = "";
     }
 
     void setElfName_auto(){
