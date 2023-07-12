@@ -63,9 +63,9 @@ public:
     void print_elf_name(){
         if (this->parent != nullptr){
             if(parent->parent != nullptr){
-                std::cout << "Small branch: ";
+                std::cout << "Middle branch: ";
             } else {
-                std::cout << "Big branch: ";
+                std::cout << "***Large branch: ";
             }
             std::cout << this->elf_name << std::endl;
         }
@@ -93,7 +93,7 @@ public:
     //Если это большая ветка
         if (parent->parent == nullptr) return this;
     //Если это средняя ветка
-        return parent->getTopBranch();
+        if (parent->parent->parent == nullptr) return parent;
     }
 
     int elf_counter(){
