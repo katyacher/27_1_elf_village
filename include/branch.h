@@ -11,7 +11,7 @@ private:
 
 public:
 
-    Branch ( const Branch & ) = delete;
+    Branch (const Branch &) = delete;
     Branch();
     Branch(Branch* parent_opt);
 
