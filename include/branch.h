@@ -1,17 +1,18 @@
 #include <string>
-#include <vector>
+#include <list>
 #include <cstdlib>
 #include <iostream>
 
 class Branch{
 private:
     Branch* parent = nullptr;
-    std::vector<Branch> children; 
+    std::list<Branch> children; 
     std::string elf_name = "";
 
 public:
-    Branch();
 
+    Branch ( const Branch & ) = delete;
+    Branch();
     Branch(Branch* parent_opt);
 
     void setElfName(std::string name);
