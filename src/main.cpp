@@ -19,7 +19,7 @@ int main(int, char**) {
 
     for(auto& tree: trees){
         std::cout << "__________Tree_________" << std::endl;
-        tree.print_elf_name();
+        tree.print_elf();
     }
 
     std::cout << "Which elves are we looking for?" << std::endl;
